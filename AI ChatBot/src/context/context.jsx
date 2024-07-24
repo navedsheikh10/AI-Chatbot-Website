@@ -45,6 +45,8 @@ const ContextProvider = (props) => {
             setRecentPrompt(input)
             response = await run(input)
         }
+         if(response[0]=='#')
+            response = response.substring(3);
         let responseArray = response.split("**")
         let newResponse = "" ;
         for(let i=0; i < responseArray.length; i++)
