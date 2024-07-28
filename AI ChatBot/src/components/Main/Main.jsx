@@ -46,8 +46,8 @@ const Main = () => {
                     <p>Suggest team bonding activities for our work retreat.</p>
                     <img src={assets.message_icon} alt="" />
                 </div>
-                <div className="card" onClick={() => handleCardClick('Improve the readability of this code.')}>
-                    <p>Improve the readbility of this code.</p>
+                <div className="card" onClick={() => handleCardClick('What is the full form of PDF ?')}>
+                    <p>What is the full form of PDF ?</p>
                     <img src={assets.code_icon} alt="" />
                 </div>
             </div>
