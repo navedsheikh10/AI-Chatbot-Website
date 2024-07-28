@@ -6,10 +6,16 @@ const Main = () => {
 
     const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useContext(Context)
 
+    //to send the prompt by pressing enter key
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' && input) {
           onSent();
         }
+    };
+      // function to handle card click
+    const handleCardClick = (prompt) => {
+        setInput(prompt);
+        onSent(prompt);
     };
 
   return (
@@ -18,6 +24,7 @@ const Main = () => {
             <p>AI ChatBot</p>
             <img src={assets.user_icon} alt="" />
         </div>
+        
         <div className="main-container">
 
             {!showResult
@@ -27,19 +34,19 @@ const Main = () => {
                 <p>How can I help you ?</p>
             </div>
             <div className="cards">
-                <div className="card">
+                <div className="card" onClick={() => handleCardClick('Suggest beautiful places to see on an upcoming trip to Turkey.')}>
                     <p>Suggest beautiful places to see on an upcoming trip to Turkey.</p>
                     <img src={assets.compass_icon} alt="" />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => handleCardClick('Briefly summarize the four pillars of Object Oriented Programming.')}>
                     <p>Briefly summarize the four pillars of Object Oriented Programming.</p>
                     <img src={assets.bulb_icon} alt="" />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => handleCardClick('Suggest team bonding activities for our work retreat.')}>
                     <p>Suggest team bonding activities for our work retreat.</p>
                     <img src={assets.message_icon} alt="" />
                 </div>
-                <div className="card">
+                <div className="card" onClick={() => handleCardClick('Improve the readability of this code.')}>
                     <p>Improve the readbility of this code.</p>
                     <img src={assets.code_icon} alt="" />
                 </div>
@@ -70,6 +77,8 @@ const Main = () => {
             
             <div className="main-bottom">
                 <div className="search-box">
+                {/* onChange event handler updates the input state with the 
+                current value of the input field whenever the user types  */}
                 <input
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
